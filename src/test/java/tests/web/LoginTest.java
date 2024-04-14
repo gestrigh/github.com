@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import tests.BaseTest;
 
 import static com.codeborne.selenide.Configuration.baseUrl;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
