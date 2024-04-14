@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.11.2'
+}
+
+group = 'com.github'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+dependencies {
+    testImplementation(
+            'org.junit.jupiter:junit-jupiter:5.10.1',
+            'com.codeborne:selenide:6.19.1',
+            'com.github.javafaker:javafaker:1.0.2',
+            'commons-io:commons-io:2.15.1',
+            'com.fasterxml.jackson.core:jackson-core:2.16.1',
+            'com.fasterxml.jackson.core:jackson-databind:2.16.1',
+            'io.qameta.allure:allure-selenide:2.25.0',
+            'org.aeonbits.owner:owner:1.0.12'
+    )
+}
+compileJava {
+    options.encoding = 'UTF-8'
+}
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+tasks.withType(Test) {
+    useJUnitPlatform()
+    systemProperties(System.getProperties())
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
