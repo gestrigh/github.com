@@ -31,6 +31,7 @@ public class AddToCartTest extends BaseTest {
                     .getBagsBtn()
                     .click();
         });
+
         step("Выбрать товар", () -> {
             catalogue
                     .getCatalogueFirst()
@@ -42,11 +43,11 @@ public class AddToCartTest extends BaseTest {
                     .getProductName()
                     .getText();
         });
-        step("Добавить товар в корзину", () -> {
-            productCard
-                    .getAddToCartBtn()
-                    .click();
-        });
+
+        step("Добавить товар в корзину", () -> productCard
+                .getAddToCartBtn()
+                .click());
+
         step("Перейти в корзину и проверить, что товар добавлен", () -> {
             notificationAddToCart
                     .getGoToCart()
