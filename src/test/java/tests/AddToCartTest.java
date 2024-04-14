@@ -8,7 +8,7 @@ import pages.components.*;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
-public class addToCartTest extends BaseTest {
+public class AddToCartTest extends BaseTest {
     Header header = new Header();
     Catalogue catalogue = new Catalogue();
     OfferPopup offerPopup = new OfferPopup();
