@@ -16,6 +16,7 @@ public class AddToCartTest extends BaseTest {
     NotificationAddToCart notificationAddToCart = new NotificationAddToCart();
     CartPage cartPage = new CartPage();
     String productName;
+    int productNumber = 0;
 
     @Test
     public void testAddToCart() {
@@ -34,7 +35,8 @@ public class AddToCartTest extends BaseTest {
 
         step("Выбрать товар", () -> {
             catalogue
-                    .getCatalogueFirst()
+                    .getProductCards()
+                    .get(productNumber)
                     .click();
             offerPopup
                     .getClosePopup()
