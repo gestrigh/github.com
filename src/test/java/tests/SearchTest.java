@@ -48,11 +48,9 @@ public class SearchTest extends BaseTest {
                     .getClosePopup()
                     .click();
         });
-        step("Проверить что товар имеет материал 'Вискоза'", () -> {
-            productCard
+        step("Проверить что товар имеет материал 'Вискоза'", () -> productCard
                     .getProductComposition()
-                    .shouldHave(Condition.text("Вискоза"));
-        });
+                    .shouldHave(Condition.text("Вискоза")));
     }
 
     @Test
@@ -69,9 +67,6 @@ public class SearchTest extends BaseTest {
             catalogue
                     .getProductCards()
                     .get(productNumber)
-                    .click();
-            offerPopup
-                    .getClosePopup()
                     .click();
         });
         step("Проверить что это нужный товар", () -> {
