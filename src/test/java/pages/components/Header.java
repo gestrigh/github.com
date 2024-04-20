@@ -10,10 +10,12 @@ import static com.codeborne.selenide.Selenide.$;
 public class Header {
     private final SelenideElement womenCategory = $("[data-genders='women']")
             .as("Раздел 'Женщинам'");
-    private final SelenideElement search = $("[placeholder='Поиск']")
+    private final SelenideElement saleBtn = $(byText("Sale%"))
+            .as("Кнопка 'Sale%'");
+    private final SelenideElement search = $("._input_1su1z_19")
             .as("Строка поиска по разделу");
     private final SelenideElement cartBtn = $("[href='/checkout/cart/']")
-            .as("Строка поиска по разделу");
+            .as("Кнопка Корзина");
     private final SelenideElement mainBtn = $("[aria-label='Главная']")
             .as("Кнопка Lamoda (Главная)");
     private final SelenideElement clothesBtn = $(byText("Одежда"))
