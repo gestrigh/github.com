@@ -8,7 +8,7 @@ import pages.components.*;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
-public class AddToCartTest extends BaseTest {
+public class CartTest extends BaseTest {
     Header header = new Header();
     Catalogue catalogue = new Catalogue();
     OfferPopup offerPopup = new OfferPopup();
@@ -55,6 +55,51 @@ public class AddToCartTest extends BaseTest {
                     .getGoToCart()
                     .click();
             cartPage.getCartList().shouldHave(Condition.text(productName));
+        });
+
+    }
+    @Test
+    public void testDeleteFromCart() {
+        step("Открыть страницу категории 'Женщинам' -> 'Аксессуары' -> 'Сумки' на Lamoda", () -> {
+            open("/women-home");
+            header
+                    .getWomenCategory()
+                    .click();
+            header
+                    .getAccessoriesBtn()
+                    .hover();
+            header
+                    .getBagsBtn()
+                    .click();
+        });
+
+        step("Выбрать товар", () -> {
+            catalogue
+                    .getProductCards()
+                    .get(productNumber)
+                    .click();
+            offerPopup
+                    .getClosePopup()
+                    .click();
+        });
+
+        step("Добавить товар в корзину", () -> productCard
+                .getAddToCartBtn()
+                .click());
+
+        step("Перейти в корзину, удалить товар, проверить что корзина пуста", () -> {
+            notificationAddToCart
+                    .getGoToCart()
+                    .click();
+            cartPage
+                    .getProductCardInCart()
+                    .hover();
+            cartPage
+                    .getDeleteBtn()
+                    .click();
+            cartPage
+                    .getEmptyCart()
+                    .shouldBe(Condition.visible);
         });
 
     }

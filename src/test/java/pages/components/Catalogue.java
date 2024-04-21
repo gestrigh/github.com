@@ -16,13 +16,15 @@ public class Catalogue {
             .as("Старая цена товара");
     private final ElementsCollection productNewPrice = $$(".x-product-card-description__price-new")
             .as("Новая цена товара");
+    private final ElementsCollection productCardTitle = $$(".x-product-card-description__product-name")
+            .as("Имя товара");
     private final SelenideElement filterProduct = $(byText("Материалы"))
             .as("Фильтр по матреиалу");
 
-    public void checkSaleProductPrice(int index) {
-        productCards
-                .get(index)
-                .click();
-    }
+//    public void checkSaleProductPrice(int index) {
+//        productCards
+//                .get(index)
+//                .click();
+//    }
 
 }

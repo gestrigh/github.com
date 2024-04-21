@@ -2,25 +2,25 @@ package tests;
 
 import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import pages.components.*;
 
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
+import static java.lang.String.format;
 
 
 public class SearchTest extends BaseTest {
     Header header = new Header();
     Catalogue catalogue = new Catalogue();
-    OfferPopup offerPopup = new OfferPopup();
     Filter filter = new Filter();
     ProductCard productCard = new ProductCard();
     String skirt = "Юбка Женская";
     int productNumber = 1;
-    String productBrand = "New Balance";
-    String productModel = " Кеды 550";
 
     @Test
-    public void testSearchViscoseSkirt() {
+    public void testFilterSearchSkirt() {
         step("Ввод в поискоевое поле 'Юбка женская' ", () -> {
             open("/women-home");
             header
@@ -44,38 +44,28 @@ public class SearchTest extends BaseTest {
                     .getProductCards()
                     .get(productNumber)
                     .click();
-            offerPopup
-                    .getClosePopup()
-                    .click();
         });
         step("Проверить что товар имеет материал 'Вискоза'", () -> productCard
                     .getProductComposition()
                     .shouldHave(Condition.text("Вискоза")));
     }
 
-    @Test
-    public void testSearchNewBalance550() {
-        step("Ввод в поискоевое поле New Balance 550", () -> {
+
+    @ValueSource(strings = {"юбка","джинсы","рубашка"})
+    @ParameterizedTest(name = "Заполнение поля поиска значением \"{0}\"")
+    public void testSearch(String setValue) {
+        step(format("Ввод в поискоевое поле %s", setValue), () -> {
             open("/women-home");
             header
                     .getSearch()
-                    .setValue(productBrand)
-                    .setValue(productModel)
+                    .setValue(setValue)
                     .pressEnter();
         });
-        step("Открыть карточку товара", () -> {
+        step(format("проверить что в каталоге отображается нужный товар %s", setValue), () -> {
             catalogue
-                    .getProductCards()
-                    .get(productNumber)
-                    .click();
-        });
-        step("Проверить что это нужный товар", () -> {
-            productCard
-                    .getProductName()
-                    .shouldHave(Condition.text(productBrand));
-            productCard
-                    .getModelName()
-                    .shouldHave(Condition.text(productModel));
+                    .getProductCardTitle()
+                    .get(0)
+                    .shouldHave(Condition.text(setValue));
         });
     }
 }
