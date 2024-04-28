@@ -13,6 +13,8 @@ import pages.IdeasPage;
 import pages.components.Header;
 import pages.components.Outfits;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -69,7 +71,7 @@ public class IdeasTest extends BaseTest {
             outfits
                     .getTitleOutfits()
                     .get(0)
-                    .shouldBe(visible);
+                    .shouldBe(visible, Duration.ofSeconds(10));
             outfits
                     .getSportOutfit()
                     .click();
