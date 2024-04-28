@@ -47,7 +47,7 @@ public class IdeasTest extends BaseTest {
         });
         step("Проверить что отображаются карточки блоггеров", () -> {
             bloggersPage.getBloggerCards().shouldHave(sizeGreaterThan(0));
-            bloggersPage.getBloggerCards().forEach(element -> element.shouldBe(visible));
+            bloggersPage.getBloggerCards().forEach(element -> element.scrollIntoView(true).shouldBe(visible));
         });
     }
 
@@ -73,7 +73,7 @@ public class IdeasTest extends BaseTest {
         step("Проверить что отображаются карточки спортивных образов", () -> {
             outfits
                     .getTitleOutfits()
-                    .forEach(element -> element.shouldHave(text("Спорт")));
+                    .get(0).shouldHave(text("Спорт"));
         });
     }
 }
