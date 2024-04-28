@@ -70,7 +70,6 @@ public class IdeasTest extends BaseTest {
             outfits
                     .getSportOutfit()
                     .click();
-            refresh();
         });
         step("Проверить что отображаются карточки спортивных образов", () -> {
             outfits

@@ -22,7 +22,7 @@ public class BaseTest {
         DriverConfig driverConfig = ConfigFactory.create(DriverConfig.class);
 
         Configuration.baseUrl = System.getProperty("baseUrl", driverConfig.baseUrl());
-        Configuration.pageLoadStrategy = "eager";
+//        Configuration.pageLoadStrategy = "eager";
         Configuration.browser = System.getProperty("browser", driverConfig.browserName());
         Configuration.browserVersion = System.getProperty("browserVersion", driverConfig.browserVersion());
         Configuration.browserSize = System.getProperty("browserSize", driverConfig.browserSize());
