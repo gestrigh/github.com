@@ -68,6 +68,10 @@ public class IdeasTest extends BaseTest {
                     .getOutfits()
                     .click();
             outfits
+                    .getTitleOutfits()
+                    .get(0)
+                    .shouldBe(visible);
+            outfits
                     .getSportOutfit()
                     .click();
         });
