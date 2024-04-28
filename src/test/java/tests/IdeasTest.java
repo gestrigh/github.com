@@ -17,6 +17,7 @@ import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.refresh;
 import static io.qameta.allure.Allure.step;
 
 @Epic("Lamoda web")
@@ -66,6 +67,7 @@ public class IdeasTest extends BaseTest {
             ideasPage
                     .getOutfits()
                     .click();
+            refresh();
             outfits
                     .getSportOutfit()
                     .click();
