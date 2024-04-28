@@ -67,10 +67,10 @@ public class IdeasTest extends BaseTest {
             ideasPage
                     .getOutfits()
                     .click();
-            refresh();
             outfits
                     .getSportOutfit()
                     .click();
+            refresh();
         });
         step("Проверить что отображаются карточки спортивных образов", () -> {
             outfits
