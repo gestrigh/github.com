@@ -21,10 +21,4 @@ public class Catalogue {
     private final SelenideElement filterProduct = $(byText("Материалы"))
             .as("Фильтр по матреиалу");
 
-//    public void checkSaleProductPrice(int index) {
-//        productCards
-//                .get(index)
-//                .click();
-//    }
-
 }

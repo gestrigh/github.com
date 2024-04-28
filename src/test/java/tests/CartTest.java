@@ -1,6 +1,13 @@
 package tests;
 
 import com.codeborne.selenide.Condition;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import pages.CartPage;
 import pages.components.*;
@@ -8,6 +15,10 @@ import pages.components.*;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
+@Epic("Lamoda web")
+@Story("Корзина")
+@Feature("Добавление товара в корзину + удаление")
+@Tags({@Tag("smoke"), @Tag("cart")})
 public class CartTest extends BaseTest {
     Header header = new Header();
     Catalogue catalogue = new Catalogue();
@@ -18,6 +29,9 @@ public class CartTest extends BaseTest {
     String productName;
     int productNumber = 0;
 
+    @DisplayName("Добавление товара в корзину")
+    @Owner("rtimofeev")
+    @Tag("addToCart")
     @Test
     public void testAddToCart() {
         step("Открыть страницу категории 'Женщинам' -> 'Аксессуары' -> 'Сумки' на Lamoda", () -> {
@@ -58,6 +72,10 @@ public class CartTest extends BaseTest {
         });
 
     }
+
+    @DisplayName("Удаление товара из корзины")
+    @Owner("rtimofeev")
+    @Tag("deleteToCart")
     @Test
     public void testDeleteFromCart() {
         step("Открыть страницу категории 'Женщинам' -> 'Аксессуары' -> 'Сумки' на Lamoda", () -> {
@@ -101,6 +119,5 @@ public class CartTest extends BaseTest {
                     .getEmptyCart()
                     .shouldBe(Condition.visible);
         });
-
     }
 }

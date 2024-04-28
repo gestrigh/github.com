@@ -1,6 +1,13 @@
 package tests;
 
 import com.codeborne.selenide.Condition;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -10,15 +17,22 @@ import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 import static java.lang.String.format;
 
-
+@Epic("Lamoda web")
+@Story("Поиск товаров")
+@Feature("Поиск товаров с применением фильтра и без")
+@Tags({@Tag("smoke"), @Tag("search")})
 public class SearchTest extends BaseTest {
     Header header = new Header();
     Catalogue catalogue = new Catalogue();
     Filter filter = new Filter();
+    OfferPopup offerPopup = new OfferPopup();
     ProductCard productCard = new ProductCard();
     String skirt = "Юбка Женская";
     int productNumber = 1;
 
+    @DisplayName("Поиск товара с применением фильтра")
+    @Owner("rtimofeev")
+    @Tag("filterSearchSkirt")
     @Test
     public void testFilterSearchSkirt() {
         step("Ввод в поискоевое поле 'Юбка женская' ", () -> {
@@ -44,14 +58,19 @@ public class SearchTest extends BaseTest {
                     .getProductCards()
                     .get(productNumber)
                     .click();
+            offerPopup
+                    .getClosePopup()
+                    .click();
         });
         step("Проверить что товар имеет материал 'Вискоза'", () -> productCard
-                    .getProductComposition()
-                    .shouldHave(Condition.text("Вискоза")));
+                .getProductComposition()
+                .shouldHave(Condition.text("Вискоза")));
     }
 
-
-    @ValueSource(strings = {"юбка","джинсы","рубашка"})
+    @DisplayName("Поиск товара")
+    @Owner("rtimofeev")
+    @Tag("searchProduct")
+    @ValueSource(strings = {"юбка", "джинсы", "рубашка"})
     @ParameterizedTest(name = "Заполнение поля поиска значением \"{0}\"")
     public void testSearch(String setValue) {
         step(format("Ввод в поискоевое поле %s", setValue), () -> {

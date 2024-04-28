@@ -10,6 +10,8 @@ import static com.codeborne.selenide.Selenide.$;
 public class Header {
     private final SelenideElement womenCategory = $("[data-genders='women']")
             .as("Раздел 'Женщинам'");
+    private final SelenideElement ideaCategory = $(byText("Идеи"))
+            .as("Раздел 'Идеи'");
     private final SelenideElement saleBtn = $(byText("Sale%"))
             .as("Кнопка 'Sale%'");
     private final SelenideElement search = $("._input_1su1z_19")
