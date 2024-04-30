@@ -87,8 +87,8 @@ gradle clean withTags -Denv=remote -Dbrowser=chrome -DbrowserVersion=122.0 -Dbro
 
 Для запуска сборки необходимо перейти в раздел ```Build with Parameters```, выбрать необходимые параметры и нажать кнопку ```Build```.
 #### :hammer_and_wrench: Параметры сборки в Jenkins:
-- BROWSER (браузер: chrome/firefox, по умолчанию firefox)
-- BROWSER_VERSION (версия браузера, по умолчанию 123.0)
+- BROWSER (браузер: chrome/firefox, по умолчанию chrome)
+- BROWSER_VERSION (версия браузера, по умолчанию 121.0)
 - BROWSER_SIZE (размер окна браузера, по умолчанию 1920x1080)
 - BROWSER_REMOTE_URL (адрес удаленного сервера для запуска)
 - BASE_URL (адрес базового URL продукта Lamoda, по умолчанию https://lamoda.ru)
