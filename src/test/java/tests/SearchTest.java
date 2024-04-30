@@ -45,7 +45,9 @@ public class SearchTest extends BaseTest {
                     .pressEnter();
         });
         step("Применяем фильтр по материалу", () -> {
-            Duration.ofSeconds(10);
+            catalogue
+                    .getFilterProduct()
+                    .shouldBe(Condition.visible, Duration.ofSeconds(10));
             catalogue
                     .getFilterProduct()
                     .click();
