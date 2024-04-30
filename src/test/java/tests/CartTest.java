@@ -31,7 +31,7 @@ public class CartTest extends BaseTest {
 
     @DisplayName("Добавление товара в корзину")
     @Owner("rtimofeev")
-    @Tag("addToCart")
+    @Tag("cart")
     @Test
     public void testAddToCart() {
         step("Открыть страницу категории 'Женщинам' -> 'Аксессуары' -> 'Сумки' на Lamoda", () -> {
@@ -75,7 +75,7 @@ public class CartTest extends BaseTest {
 
     @DisplayName("Удаление товара из корзины")
     @Owner("rtimofeev")
-    @Tag("deleteToCart")
+    @Tag("cart")
     @Test
     public void testDeleteFromCart() {
         step("Открыть страницу категории 'Женщинам' -> 'Аксессуары' -> 'Сумки' на Lamoda", () -> {

@@ -34,7 +34,7 @@ public class IdeasTest extends BaseTest {
 
     @DisplayName("Проверка отображения карточек блоггеров")
     @Owner("rtimofeev")
-    @Tag("bloggers")
+    @Tag("ideas")
     @Test
     public void testBloggers() {
         step("Открыть раздел Идеи", () -> {
@@ -56,7 +56,7 @@ public class IdeasTest extends BaseTest {
 
     @DisplayName("Проверка отображения спортивных образов")
     @Owner("rtimofeev")
-    @Tag("outfits")
+    @Tag("ideas")
     @Test
     public void testOutfits() {
         step("Открыть раздел Идеи", () -> {

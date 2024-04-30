@@ -32,7 +32,7 @@ public class SearchTest extends BaseTest {
 
     @DisplayName("Поиск товара с применением фильтра")
     @Owner("rtimofeev")
-    @Tag("filterSearchSkirt")
+    @Tag("search")
     @Test
     public void testFilterSearchSkirt() {
         step("Ввод в поискоевое поле 'Юбка женская' ", () -> {
@@ -70,7 +70,7 @@ public class SearchTest extends BaseTest {
 
     @DisplayName("Поиск товара")
     @Owner("rtimofeev")
-    @Tag("searchProduct")
+    @Tag("search")
     @ValueSource(strings = {"юбка", "рубашка", "джинсы"})
     @ParameterizedTest(name = "Заполнение поля поиска значением \"{0}\"")
     public void testSearch(String setValue) {
