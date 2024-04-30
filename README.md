@@ -67,8 +67,8 @@
 
 ### Запуск тестов из терминала
 
-В проекте присутствуют отдельные теги для каждого тест-сьюта (описаны выше в реализованных проверках), с помощью которых,
-можно запускать не только все тесты единоразово, но и отдельно только нужные. Применимо и при локальном и удаленном запуске.
+В проекте присутствуют отдельные теги для каждого тест-сьюта (описаны выше в реализованных проверках), с помощью которых
+можно запускать не только все тесты единоразово, но и отдельно только нужные. Применимо при локальном и удаленном запуске.
 Локальный запуск тестов по сьютам "cart,ideas" без доп. параметров:
 ```
 gradle clean withTags -Dtags=cart,ideas
@@ -110,7 +110,7 @@ gradle clean withTags -Denv=remote -Dbrowser=chrome -DbrowserVersion=122.0 -Dbro
 <a id="allureTestOps"></a>
 ## <img width="3%" style="vertical-align:middle" title="Allure TestOps" src="https://plugins.jetbrains.com/files/12513/451639/icon/pluginIcon.svg"> </a> Интеграция с <a target="_blank" href="https://allure.autotests.cloud/project/4205/dashboards"> Allure TestOps </a>
 
-На *Dashboard* в ```Allure TestOps``` видна статистика количества тестов: сколько из них добавлены и проходятся вручную, сколько автоматизированы. Новые тесты, а так же результаты прогона приходят по интеграции при каждом запуске сборки.
+На *Dashboard* в ```Allure TestOps``` видна статистика количества тестов: сколько из них добавлены и проходятся вручную, сколько автоматизированы. Новые тесты и результаты прогона приходят по интеграции при каждом запуске сборки.
 
 <p align="center">
 <img title="Allure TestOps DashBoard" src="media/allureTestOps.png">
@@ -125,7 +125,7 @@ gradle clean withTags -Denv=remote -Dbrowser=chrome -DbrowserVersion=122.0 -Dbro
 <a id="jira"></a>
 ## <img width="4%" style="vertical-align:middle" title="Jira" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original-wordmark.svg"> </a> Интеграция с <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-1204"> Jira </a>
 
-Реализована интеграция ```Allure TestOps``` с ```Jira```, в тикете отображается, какие тест-кейсы были написаны в рамках задачи и результат их прогона.
+Реализована интеграция ```Allure TestOps``` с ```Jira```. В тикете отображается какие тест-кейсы были написаны в рамках задачи и результат их прогона.
 
 <p align="center">
 <img title="Jira Task" src="media/Jira.png">
