@@ -73,7 +73,7 @@ public class SearchTest extends BaseTest {
     @DisplayName("Поиск товара")
     @Owner("rtimofeev")
     @Tag("searchProduct")
-    @ValueSource(strings = {"юбка", "джинсы", "рубашка"})
+    @ValueSource(strings = {"юбка", "рубашка", "джинсы"})
     @ParameterizedTest(name = "Заполнение поля поиска значением \"{0}\"")
     public void testSearch(String setValue) {
         step(format("Ввод в поискоевое поле %s", setValue), () -> {
