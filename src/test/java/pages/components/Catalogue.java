@@ -18,7 +18,7 @@ public class Catalogue {
             .as("Новая цена товара");
     private final ElementsCollection productCardTitle = $$(".x-product-card-description__product-name")
             .as("Имя товара");
-    private final SelenideElement filterProduct = $(byText("Материалы"))
-            .as("Фильтр по матреиалу");
+    private final ElementsCollection filterProduct = $$("._item_pjvgk_2")
+            .as("Фильтр");
 
 }

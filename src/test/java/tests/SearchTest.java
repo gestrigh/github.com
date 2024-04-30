@@ -47,9 +47,7 @@ public class SearchTest extends BaseTest {
         step("Применяем фильтр по материалу", () -> {
             catalogue
                     .getFilterProduct()
-                    .shouldBe(Condition.visible, Duration.ofSeconds(10));
-            catalogue
-                    .getFilterProduct()
+                    .get(1)
                     .click();
             filter
                     .getMainMaterialViscose()
