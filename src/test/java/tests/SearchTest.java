@@ -13,6 +13,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import pages.components.*;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 import static java.lang.String.format;
@@ -43,6 +45,7 @@ public class SearchTest extends BaseTest {
                     .pressEnter();
         });
         step("Применяем фильтр по материалу", () -> {
+            Duration.ofSeconds(10);
             catalogue
                     .getFilterProduct()
                     .click();
