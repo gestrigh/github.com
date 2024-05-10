@@ -68,7 +68,7 @@ public class CartTest extends BaseTest {
             notificationAddToCart
                     .getGoToCart()
                     .click();
-            cartPage.getCartList().shouldHave(Condition.text(productName));
+            cartPage.getProductTitle().shouldHave(Condition.text(productName));
         });
 
     }
