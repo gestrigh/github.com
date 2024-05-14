@@ -18,7 +18,6 @@ import java.util.Objects;
 public class BaseTest {
     @BeforeAll
     static void browserSettings() {
-        System.setProperty("env", System.getProperty("env", "local"));
         DriverConfig driverConfig = ConfigFactory.create(DriverConfig.class);
 
         Configuration.baseUrl = System.getProperty("baseUrl", driverConfig.baseUrl());

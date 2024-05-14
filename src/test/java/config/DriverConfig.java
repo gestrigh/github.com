@@ -5,7 +5,8 @@ import org.aeonbits.owner.Config;
 
 @Config.LoadPolicy(Config.LoadType.FIRST)
 @Config.Sources({
-        "classpath:config/${env}.properties"
+        "classpath:config/${env}.properties",
+        "classpath:config/local.properties"
 })
 public interface DriverConfig extends Config {
     @Key("browser.name")
