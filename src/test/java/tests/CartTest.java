@@ -46,7 +46,6 @@ public class CartTest extends BaseTest {
                     .getBagsBtn()
                     .click();
         });
-
         step("Выбрать товар", () -> {
             catalogueComponent
                     .getProductCards()
@@ -59,18 +58,15 @@ public class CartTest extends BaseTest {
                     .getProductName()
                     .getText();
         });
-
         step("Добавить товар в корзину", () -> productCardComponent
                 .getAddToCartBtn()
                 .click());
-
         step("Перейти в корзину и проверить, что товар добавлен", () -> {
             notificationAddToCartComponent
                     .getGoToCart()
                     .click();
             cartPage.getProductTitle().shouldHave(Condition.text(productName));
         });
-
     }
 
     @DisplayName("Удаление товара из корзины")
@@ -90,7 +86,6 @@ public class CartTest extends BaseTest {
                     .getBagsBtn()
                     .click();
         });
-
         step("Выбрать товар", () -> {
             catalogueComponent
                     .getProductCards()
@@ -100,11 +95,9 @@ public class CartTest extends BaseTest {
                     .getClosePopup()
                     .click();
         });
-
         step("Добавить товар в корзину", () -> productCardComponent
                 .getAddToCartBtn()
                 .click());
-
         step("Перейти в корзину, удалить товар, проверить что корзина пуста", () -> {
             notificationAddToCartComponent
                     .getGoToCart()
