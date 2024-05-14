@@ -42,7 +42,7 @@ public class SearchTest extends BaseTest {
                     .setValue(skirt)
                     .pressEnter();
         });
-        step("Применяем фильтр по материалу", () -> {
+        step("Применяем фильтр по материалу 'Вискоза'", () -> {
             catalogueComponent
                     .getFilterProduct()
                     .get(1)
@@ -63,7 +63,7 @@ public class SearchTest extends BaseTest {
                     .getClosePopup()
                     .click();
         });
-        step("Проверить что товар имеет материал 'Вискоза'", () -> productCardComponent
+        step("Проверить что в составе товара есть материал 'Вискоза'", () -> productCardComponent
                 .getProductComposition()
                 .shouldHave(Condition.text("Вискоза")));
     }
@@ -81,7 +81,7 @@ public class SearchTest extends BaseTest {
                     .setValue(setValue)
                     .pressEnter();
         });
-        step(format("проверить что в каталоге отображается нужный товар %s", setValue), () -> {
+        step(format("Проверить что в каталоге отображается нужный товар %s", setValue), () -> {
             catalogueComponent
                     .getProductCardTitle()
                     .get(0)
