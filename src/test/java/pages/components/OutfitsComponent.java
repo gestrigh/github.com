@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 @Getter
-public class Outfits {
+public class OutfitsComponent {
     private final SelenideElement sportOutfit = $("[href='/looks/women/?event=41']")
             .as("Раздел Спорт");
     private final ElementsCollection titleOutfits = $$("._title_1kz8o_32")

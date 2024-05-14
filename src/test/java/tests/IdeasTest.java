@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import pages.BloggersPage;
 import pages.IdeasPage;
-import pages.components.Header;
-import pages.components.Outfits;
+import pages.components.HeaderComponent;
+import pages.components.OutfitsComponent;
 
 import java.time.Duration;
 
@@ -27,10 +27,10 @@ import static io.qameta.allure.Allure.step;
 @Feature("Переходы по разделам старницы")
 @Tags({@Tag("smoke"), @Tag("ideasPage")})
 public class IdeasTest extends BaseTest {
-    Header header = new Header();
+    HeaderComponent headerComponent = new HeaderComponent();
     IdeasPage ideasPage = new IdeasPage();
     BloggersPage bloggersPage = new BloggersPage();
-    Outfits outfits = new Outfits();
+    OutfitsComponent outfitsComponent = new OutfitsComponent();
 
     @DisplayName("Проверка отображения карточек блоггеров")
     @Owner("rtimofeev")
@@ -39,7 +39,7 @@ public class IdeasTest extends BaseTest {
     public void testBloggers() {
         step("Открыть раздел Идеи", () -> {
             open("/women-home");
-            header
+            headerComponent
                     .getIdeaCategory()
                     .click();
         });
@@ -61,7 +61,7 @@ public class IdeasTest extends BaseTest {
     public void testOutfits() {
         step("Открыть раздел Идеи", () -> {
             open("/women-home");
-            header
+            headerComponent
                     .getIdeaCategory()
                     .click();
         });
@@ -69,17 +69,17 @@ public class IdeasTest extends BaseTest {
             ideasPage
                     .getOutfits()
                     .click();
-            outfits
+            outfitsComponent
                     .getTitleOutfits()
                     .get(0)
                     .shouldBe(visible, Duration.ofSeconds(10));
-            outfits
+            outfitsComponent
                     .getSportOutfit()
                     .click();
             refresh();
         });
         step("Проверить что отображаются карточки спортивных образов", () -> {
-            outfits
+            outfitsComponent
                     .getTitleOutfits()
                     .get(0).shouldHave(text("Спорт"));
         });

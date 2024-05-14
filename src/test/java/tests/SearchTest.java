@@ -22,11 +22,11 @@ import static java.lang.String.format;
 @Feature("Поиск товаров с применением фильтра и без")
 @Tags({@Tag("smoke"), @Tag("search")})
 public class SearchTest extends BaseTest {
-    Header header = new Header();
-    Catalogue catalogue = new Catalogue();
-    Filter filter = new Filter();
-    OfferPopup offerPopup = new OfferPopup();
-    ProductCard productCard = new ProductCard();
+    HeaderComponent headerComponent = new HeaderComponent();
+    CatalogueComponent catalogueComponent = new CatalogueComponent();
+    FilterComponent filterComponent = new FilterComponent();
+    OfferPopupComponent offerPopupComponent = new OfferPopupComponent();
+    ProductCardComponent productCardComponent = new ProductCardComponent();
     String skirt = "Юбка Женская";
     int productNumber = 1;
 
@@ -37,33 +37,33 @@ public class SearchTest extends BaseTest {
     public void testFilterSearchSkirt() {
         step("Ввод в поискоевое поле 'Юбка женская' ", () -> {
             open("/women-home");
-            header
+            headerComponent
                     .getSearch()
                     .setValue(skirt)
                     .pressEnter();
         });
         step("Применяем фильтр по материалу", () -> {
-            catalogue
+            catalogueComponent
                     .getFilterProduct()
                     .get(1)
                     .click();
-            filter
+            filterComponent
                     .getMainMaterialViscose()
                     .click();
-            filter
+            filterComponent
                     .getAcceptBtn()
                     .click();
         });
         step("Открыть карточку товара", () -> {
-            catalogue
+            catalogueComponent
                     .getProductCards()
                     .get(productNumber)
                     .click();
-            offerPopup
+            offerPopupComponent
                     .getClosePopup()
                     .click();
         });
-        step("Проверить что товар имеет материал 'Вискоза'", () -> productCard
+        step("Проверить что товар имеет материал 'Вискоза'", () -> productCardComponent
                 .getProductComposition()
                 .shouldHave(Condition.text("Вискоза")));
     }
@@ -76,13 +76,13 @@ public class SearchTest extends BaseTest {
     public void testSearch(String setValue) {
         step(format("Ввод в поискоевое поле %s", setValue), () -> {
             open("/women-home");
-            header
+            headerComponent
                     .getSearch()
                     .setValue(setValue)
                     .pressEnter();
         });
         step(format("проверить что в каталоге отображается нужный товар %s", setValue), () -> {
-            catalogue
+            catalogueComponent
                     .getProductCardTitle()
                     .get(0)
                     .shouldHave(Condition.text(setValue));

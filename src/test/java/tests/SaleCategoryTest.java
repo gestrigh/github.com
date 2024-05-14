@@ -8,8 +8,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import pages.components.Catalogue;
-import pages.components.Header;
+import pages.components.CatalogueComponent;
+import pages.components.HeaderComponent;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.visible;
@@ -21,8 +21,8 @@ import static io.qameta.allure.Allure.step;
 @Feature("Проверка скидки у товара")
 @Tags({@Tag("smoke"), @Tag("saleCategory")})
 public class SaleCategoryTest extends BaseTest {
-    Header header = new Header();
-    Catalogue catalogue = new Catalogue();
+    HeaderComponent headerComponent = new HeaderComponent();
+    CatalogueComponent catalogueComponent = new CatalogueComponent();
 
     @DisplayName("Проверка отображения скидки у скидочного товара")
     @Owner("rtimofeev")
@@ -31,16 +31,16 @@ public class SaleCategoryTest extends BaseTest {
     public void testSalePrice() {
         step("Открыть раздел Sale%", () -> {
             open("/woman-home");
-            header
+            headerComponent
                     .getSaleBtn()
                     .click();
         });
         step("Проверить что в катологе у товаров есть две цены (старая и новая)", () -> {
-            catalogue
+            catalogueComponent
                     .getProductOldPrice()
                     .filterBy(visible)
                     .shouldHave(sizeGreaterThan(0));
-            catalogue
+            catalogueComponent
                     .getProductNewPrice()
                     .filterBy(visible)
                     .shouldHave(sizeGreaterThan(0));

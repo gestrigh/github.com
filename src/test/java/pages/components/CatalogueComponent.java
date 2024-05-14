@@ -6,7 +6,7 @@ import lombok.Getter;
 import static com.codeborne.selenide.Selenide.$$;
 
 @Getter
-public class Catalogue {
+public class CatalogueComponent {
     private final ElementsCollection productCards = $$(".x-product-card__card")
             .as("Выбрать товар в Каталоге");
     private final ElementsCollection productOldPrice = $$(".x-product-card-description__price-old")

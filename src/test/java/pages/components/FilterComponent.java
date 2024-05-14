@@ -7,7 +7,7 @@ import lombok.Getter;
 import static com.codeborne.selenide.Selenide.$;
 
 @Getter
-public class Filter {
+public class FilterComponent {
     private final SelenideElement mainMaterialViscose = $(".vue-recycle-scroller__item-wrapper")
             .findAll("div")
             .findBy(Condition.text("Вискоза"))

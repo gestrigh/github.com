@@ -20,11 +20,11 @@ import static io.qameta.allure.Allure.step;
 @Feature("Добавление товара в корзину + удаление")
 @Tags({@Tag("smoke"), @Tag("cart")})
 public class CartTest extends BaseTest {
-    Header header = new Header();
-    Catalogue catalogue = new Catalogue();
-    OfferPopup offerPopup = new OfferPopup();
-    ProductCard productCard = new ProductCard();
-    NotificationAddToCart notificationAddToCart = new NotificationAddToCart();
+    HeaderComponent headerComponent = new HeaderComponent();
+    CatalogueComponent catalogueComponent = new CatalogueComponent();
+    OfferPopupComponent offerPopupComponent = new OfferPopupComponent();
+    ProductCardComponent productCardComponent = new ProductCardComponent();
+    NotificationAddToCartComponent notificationAddToCartComponent = new NotificationAddToCartComponent();
     CartPage cartPage = new CartPage();
     String productName;
     int productNumber = 0;
@@ -36,36 +36,36 @@ public class CartTest extends BaseTest {
     public void testAddToCart() {
         step("Открыть страницу категории 'Женщинам' -> 'Аксессуары' -> 'Сумки' на Lamoda", () -> {
             open("/women-home");
-            header
+            headerComponent
                     .getWomenCategory()
                     .click();
-            header
+            headerComponent
                     .getAccessoriesBtn()
                     .hover();
-            header
+            headerComponent
                     .getBagsBtn()
                     .click();
         });
 
         step("Выбрать товар", () -> {
-            catalogue
+            catalogueComponent
                     .getProductCards()
                     .get(productNumber)
                     .click();
-            offerPopup
+            offerPopupComponent
                     .getClosePopup()
                     .click();
-            productName = productCard
+            productName = productCardComponent
                     .getProductName()
                     .getText();
         });
 
-        step("Добавить товар в корзину", () -> productCard
+        step("Добавить товар в корзину", () -> productCardComponent
                 .getAddToCartBtn()
                 .click());
 
         step("Перейти в корзину и проверить, что товар добавлен", () -> {
-            notificationAddToCart
+            notificationAddToCartComponent
                     .getGoToCart()
                     .click();
             cartPage.getProductTitle().shouldHave(Condition.text(productName));
@@ -80,33 +80,33 @@ public class CartTest extends BaseTest {
     public void testDeleteFromCart() {
         step("Открыть страницу категории 'Женщинам' -> 'Аксессуары' -> 'Сумки' на Lamoda", () -> {
             open("/women-home");
-            header
+            headerComponent
                     .getWomenCategory()
                     .click();
-            header
+            headerComponent
                     .getAccessoriesBtn()
                     .hover();
-            header
+            headerComponent
                     .getBagsBtn()
                     .click();
         });
 
         step("Выбрать товар", () -> {
-            catalogue
+            catalogueComponent
                     .getProductCards()
                     .get(productNumber)
                     .click();
-            offerPopup
+            offerPopupComponent
                     .getClosePopup()
                     .click();
         });
 
-        step("Добавить товар в корзину", () -> productCard
+        step("Добавить товар в корзину", () -> productCardComponent
                 .getAddToCartBtn()
                 .click());
 
         step("Перейти в корзину, удалить товар, проверить что корзина пуста", () -> {
-            notificationAddToCart
+            notificationAddToCartComponent
                     .getGoToCart()
                     .click();
             cartPage

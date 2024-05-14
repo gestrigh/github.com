@@ -6,6 +6,6 @@ import lombok.Getter;
 import static com.codeborne.selenide.Selenide.$;
 
 @Getter
-public class OfferPopup {
+public class OfferPopupComponent {
     private final SelenideElement closePopup = $("[title='Закрыть']");
 }

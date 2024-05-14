@@ -7,6 +7,6 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 @Getter
-public class NotificationAddToCart {
+public class NotificationAddToCartComponent {
     private final SelenideElement goToCart = $(byText("Перейти в корзину"));
 }

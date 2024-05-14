@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 @Getter
-public class Header {
+public class HeaderComponent {
     private final SelenideElement womenCategory = $("[data-genders='women']")
             .as("Раздел 'Женщинам'");
     private final SelenideElement ideaCategory = $(byText("Идеи"))
